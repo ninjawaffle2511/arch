@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "[#] Synchronizing Clock..."
-systemctl set-ntp true
+timedatectl set-ntp true
 
 echo "[#] Initializing fdisk..."
 echo -n "Enter desired root size in GB: "
