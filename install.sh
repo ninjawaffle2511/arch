@@ -67,3 +67,5 @@ mkdir /mnt/home
 mount /dev/sda3 /mnt/home
 
 echo "[#] Finished. Installation ready for pacstrap"
+
+pacstrap /mnt base linux linux-headers
