@@ -66,6 +66,9 @@ mount /dev/sda1 /mnt
 mkdir /mnt/home
 mount /dev/sda3 /mnt/home
 
+echo "[#] Updating mirrorlist..."
+cp /root/arch/mirrorlist /etc/pacman.d/mirrorlist
+
 echo "[#] Running pacstrap..."
 pacstrap /mnt base linux linux-headers linux-firmware
 
@@ -75,6 +78,9 @@ arch-chroot /mnt
 echo "[#] Setting timezone to Brisbane, Australia..."
 ln -sf /usr/share/zoneinfo/Australia/Brisbane /etc/localtime
 hwclock --systohc
+cp /root/arch/locale.gen /etc/locale.gen
+locale-gen
+cp /root/arch/locale.conf /etc/locale.conf
 
 echo "[#] Please change the root password"
 passwd
