@@ -70,10 +70,13 @@ echo "[#] Updating mirrorlist..."
 cp /root/arch/mirrorlist /etc/pacman.d/mirrorlist
 
 echo "[#] Running pacstrap..."
-pacstrap /mnt base linux linux-headers linux-firmware
+pacstrap /mnt base linux
 
 echo "[#] Copying install script to /mnt"
-cp /root/arch/install2.sh /mnt
+mkdir /mnt/arch
+cp /root/arch/install2.sh /mnt/arch
+cp /root/arch/locale.gen /mnt/arch
+cp /root/arch/locale.conf /mnt/arch
 
 echo "[#] chrooting into system..."
 arch-chroot /mnt
